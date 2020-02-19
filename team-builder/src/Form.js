@@ -7,6 +7,7 @@ const Form = props => {
         console.log("event", event.target.value);
         setMember({ ...member, [event.target.name]: event.target.value });
     };
+  
     const submitForm = event => {
         console.log("submitting!");
         event.preventDefault();
@@ -24,6 +25,7 @@ const Form = props => {
                     name='name'
                     value={member.name}
                     placeholder='Name'
+                    onChange={handleChanges}
                 />
                 <label htmlFor='email'>Email: </label>
                 <input 
@@ -32,6 +34,7 @@ const Form = props => {
                     name='email'
                     value={member.email}
                     placeholder='Email'
+                    onChange={handleChanges}
                 />
                 <label htmlFor='role'>Role: </label>
                 <input 
@@ -40,6 +43,7 @@ const Form = props => {
                     name='role'
                     value={member.role}
                     placeholder='Role'
+                    onChange={handleChanges}
                 />
                 <button type='submit'>Submit Form!</button>
             </form>
