@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
+const JoinForm = styled.form`
+display:flex;
+flex-direction:row;
+justify-content: space-evenly;
+`
+
+const FormField = styled.div`
+display:flex;
+flex-direction:row;
+flex-wrap: wrap;
+justify-content:space-evenly;
+margin:10px;
+padding:5px;
+`
+const FormLabel = styled.label`
+margin:3px;
+padding:5px;
+text-align:center;
+`
+const FormInput = styled.input`
+margin:3px;
+padding: 5px;
+`
+const FormButton = styled.button`
+height: 45px;
+align-self:center;
+border-radius:5px;
+`
 const Form = props => {
     console.log(props)
     const [member, setMember] = useState({ name: '', email: '', role: '' })
@@ -17,36 +46,42 @@ const Form = props => {
 
     return (
         <div>
-            <form onSubmit={submitForm}>
-                <label htmlFor='name'>Name: </label>
-                <input
-                    type='text'
-                    id='name'
-                    name='name'
-                    value={member.name}
-                    placeholder='Name'
-                    onChange={handleChanges}
-                />
-                <label htmlFor='email'>Email: </label>
-                <input 
-                    type='text'
-                    id='email'
-                    name='email'
-                    value={member.email}
-                    placeholder='Email'
-                    onChange={handleChanges}
-                />
-                <label htmlFor='role'>Role: </label>
-                <input 
-                    type='text'
-                    id='role'
-                    name='role'
-                    value={member.role}
-                    placeholder='Role'
-                    onChange={handleChanges}
-                />
-                <button type='submit'>Submit Form!</button>
-            </form>
+            <JoinForm onSubmit={submitForm}>
+                <FormField>
+                    <FormLabel htmlFor='name'>Name: </FormLabel>
+                    <FormInput
+                        type='text'
+                        id='name'
+                        name='name'
+                        value={member.name}
+                        placeholder='Name'
+                        onChange={handleChanges}
+                    />
+                </FormField>
+                <FormField>
+                    <FormLabel htmlFor='email'>Email: </FormLabel>
+                    <FormInput 
+                        type='email'
+                        id='email'
+                        name='email'
+                        value={member.email}
+                        placeholder='Email'
+                        onChange={handleChanges}
+                    />  
+                </FormField>
+                <FormField>
+                    <FormLabel htmlFor='role'>Role: </FormLabel>
+                    <FormInput 
+                        type='text'
+                        id='role'
+                        name='role'
+                        value={member.role}
+                        placeholder='Role'
+                        onChange={handleChanges}
+                    />
+                </FormField>
+                <FormButton type='submit'>Join the Team!</FormButton>
+            </JoinForm>
         </div>
     )
 }

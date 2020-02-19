@@ -20,14 +20,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>Best Dev Team</h1>
         <Form 
           addNewMember ={addNewMember}
         />
+        <h2>The Team</h2>
         <Member 
-          teamMembers={teamMembers}
-        />
-        <p>stay tuned.... new hotness right around the corner</p>
-      </header>
+            teamMembers={teamMembers}
+          />
+        </header>
     </div>
   );
 }
